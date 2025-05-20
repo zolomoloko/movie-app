@@ -7,14 +7,16 @@ import { UpComing } from "@/components/UpComing";
 
 export default function Home() {
   return (
-    <div className="">
-      <div >
-        <Header />
+    <div>
+      <div className="max-w-[1440px] m-auto">
+        <div className="w-screen md:max-w-[1280px] mx-auto">
+          <Header />
+        </div>
         <MovieCarousel />
         <div className="w-screen md:max-w-[1280px] mx-auto">
-        <UpComing/>
-        <Popular/>
-        <TopRated/>
+          <UpComing/>
+          <Popular/>
+          <TopRated/>
         </div>
         <Footer />
       </div>

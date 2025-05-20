@@ -2,7 +2,7 @@ import { Play, Star } from "lucide-react";
 
 export const MovieCarouselItem = () => {
   return (
-    <div>
+    <div className="relative">
       <img
         src="./carous.jpg"
         alt="cart"

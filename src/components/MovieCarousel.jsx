@@ -22,8 +22,8 @@ export const MovieCarousel = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-10 to-50%"/>
-        <CarouselNext className="right-10 to-50%"/>
+        <CarouselPrevious className="invisible md:visible absolute left-10 to-50%"/>
+        <CarouselNext className="invisible md:visible absolute right-10 to-50%"/>
       </Carousel>
     </div>
   );
