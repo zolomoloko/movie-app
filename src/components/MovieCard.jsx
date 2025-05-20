@@ -3,7 +3,7 @@ import { Star } from "lucide-react"
 export const MovieCard = () => {
     return(
         <div className="w-fit rounded-[8px] bg-gray-50">
-            <img src="./cart.jpg" alt="movieCart" className="w-[157.5px] h-[233.1px] md:w-[229.7px] md:h-[340px]"/>
+            <img src="./cart.jpg" alt="movieCart" className="w-screen h-[233.1px] md:h-[340px]"/>
             <div className="p-[8px]">
                 <div className="flex gap-[4px]">
                     <Star className="h-[16px} w-[16px] fill-yellow-300 text-yellow-300"/>

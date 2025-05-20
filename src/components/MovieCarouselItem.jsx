@@ -6,7 +6,7 @@ export const MovieCarouselItem = () => {
       <img
         src="./carous.jpg"
         alt="cart"
-        className="w-screen min-h-[246px] md:max-h-[600px] md:relative"
+        className="w-screen min-h-[246px] md:max-h-[600px] md:relative object-cover"
       />
       <div className="flex flex-col gap-[16px] m-[20px] md:absolute top-[178px] left-[140px] md:w-[404px] md:text-white">
         <div className="flex w-[335px] h-[52px] justify-between items-center">
