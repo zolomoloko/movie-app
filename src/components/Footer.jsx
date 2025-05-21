@@ -2,7 +2,7 @@ import { FilmIcon, MailIcon, Phone } from "lucide-react"
 
 export const Footer = () => {
     return(
-        <div className="md:flex  flex flex-col justify-center bg-[#4338ca] px-5 py-5 md:px-[420px] text-white ">
+        <div className="md:flex  flex flex-col justify-center bg-[#4338ca] px-5 py-5 md:px-[140px] text-white ">
             <div className="pb-7 flex flex-col gap-3">
               <div className="flex gap-2">
                 <FilmIcon/>  

@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 export const Header = () => {
   return (
-    <div className="h-15 flex justify-between items-center p-5">
+    <div className="h-15 flex justify-between items-center p-5  md:max-w-[2000px] mx-auto">
       <div className="flex gap-2 items-center text-sky-800">
         <FilmIcon className="h-5 w-5" />
         <b>
