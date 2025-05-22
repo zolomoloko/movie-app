@@ -3,7 +3,8 @@ import {Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious}
 import { MovieCarouselItem } from "./MovieCarouselItem";
 import Autoplay from "embla-carousel-autoplay"
 import { useEffect, useState } from "react";
-import { getNowPlayingMovies } from "@/lib/api/carousel";
+import { getNowPlayingMovies } from "@/lib/api/getNowPlayingMovies";
+
 
 export const MovieCarousel = () => {
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
@@ -30,6 +31,7 @@ export const MovieCarousel = () => {
               <div className="p-1">
                 <MovieCarouselItem 
                   movie={movie}
+                  movieId={movie.id}
                 />
               </div>
             </CarouselItem>
