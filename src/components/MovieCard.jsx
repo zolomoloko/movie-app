@@ -3,7 +3,7 @@ import { Star } from "lucide-react"
 export const MovieCard = ({movie}) => {
     
     return(
-        <div className="w-full rounded-[8px] bg-gray-50 shadow-lg">
+        <div className="w-full rounded-[8px] bg-gray-50 shadow-lg overflow-hidden">
             <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} />
             <div className="p-[8px]">
                 <div className="flex gap-[4px]">
