@@ -10,7 +10,7 @@ export const getMovieById = async (movieId) => {
     }
   );
 
-  console.log(response);
+  
 
   const kino = await response.json();
   return kino;

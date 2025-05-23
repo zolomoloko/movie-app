@@ -12,7 +12,6 @@ export const Popular = () => {
         const popMovies = async () => {
             const upPopularMovies = await getPopularMovies();
             setUpPopularMovies(upPopularMovies)
-            console.log("ppp",upPopularMovies)
         };
         popMovies();
     }, [])

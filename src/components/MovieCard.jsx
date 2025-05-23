@@ -1,9 +1,11 @@
 import { Star } from "lucide-react"
+import Link from "next/link"
 
-export const MovieCard = ({movie}) => {
+export const MovieCard = ({movie, movieId}) => {
     
     return(
         <div className="w-full rounded-[8px] bg-gray-50 shadow-lg overflow-hidden">
+            <Link href={`/details/${movie.id}`}>
             <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} />
             <div className="p-[8px]">
                 <div className="flex gap-[4px]">
@@ -15,6 +17,7 @@ export const MovieCard = ({movie}) => {
                 </div>
                 <p className="font-medium h-[40px] text-[#09090b]">{movie?.title}</p>
             </div>
+            </Link>
         </div>
     )
 }

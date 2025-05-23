@@ -10,6 +10,5 @@ export const getTopMovies = async () => {
     }
   );
   const top = await response.json();
-  console.log("hhhh", top);
   return top?.results;
 };

@@ -8,7 +8,7 @@ export const Header = () => {
   return (
     <div className="h-15 flex justify-between items-center p-5  md:max-w-[1800px] mx-auto">
       <div className="flex gap-2 items-center text-sky-800">
-       <a href="./localhost:3001/"><FilmIcon className="h-5 w-5" /></a>
+       <a href=""><FilmIcon className="h-5 w-5" /></a>
        
         <b>
           <i>MovieZ</i>

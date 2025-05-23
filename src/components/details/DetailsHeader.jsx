@@ -1,5 +1,6 @@
 import { Play, Star } from "lucide-react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
+
 
 export const DetailsHeader = ({movie}) => {
   return (
@@ -7,7 +8,7 @@ export const DetailsHeader = ({movie}) => {
         <div className="flex justify-between px-5 md:px-0">
             <div>
                 <h1 className="font-semibold text-[24px] md:text-[36px]">{movie?.title}</h1>
-                <h2 className="font-normal text-[14px] md:text-[18px]">{movie?.release_date} · PG · 2h 40m</h2>
+                <h2 className="font-normal text-[14px] md:text-[18px]">{movie?.release_date} · PG · {movie?.runtime}m</h2>
             </div>
 
             <div>
@@ -16,7 +17,7 @@ export const DetailsHeader = ({movie}) => {
                 <Star className="h-6 w-6 fill-yellow-300 text-yellow-300" />
                 <div>
                     <div className="flex font-normal text-[14px]">
-                        <p className="text-[#09090b]">6.9</p>
+                        <p className="text-[#09090b]">{movie?.vote_average?.toFixed(1)}</p>
                         <p className="text-[#71717a]">/10</p>
                     </div>
                     <p className="font-normal text-[12px] text-[#71717a]">37k</p>
