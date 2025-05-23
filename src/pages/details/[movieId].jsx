@@ -1,17 +1,38 @@
+import { DetailsTable } from "@/components/DetailsTable";
 import { DetailsHeader } from "@/components/DetailsHeader";
+import { DetailsMoreLike } from "@/components/DetailsMoreLike";
+import { DetailsOverview } from "@/components/DetailsOverview";
 import { Header } from "@/components/Header";
 import { useRouter } from "next/router";
+import { getMovieById } from "@/lib/api/api/getMovieById";
+import { useEffect, useState } from "react";
 
-export default function Details () {
+const Details = () => {
   const router = useRouter();
-
-  return(
+  const movieId = router.query.movieId;
+  const [movie, setMovie] = useState({});
+  console.log("lllll",movie);
+  useEffect(() => {
+    if (!movieId) return;
+    const getMovie = async () => {
+      const data = await getMovieById(movieId);
+      setMovie(data);
+    };
+    getMovie();
+  }, [movieId]);
+  return (
     <div>
-        <Header/>
-        <DetailsHeader/>
+      <Header />
+      <div className="md:max-w-[1100px] mx-auto">
+       
+        <DetailsHeader movie={movie}/>
+        <DetailsOverview movie={movie}/>
+        <DetailsTable movie={movie}/>
+        <DetailsMoreLike />
+        
+      </div>
     </div>
-  )
+  );
 };
-// /movie/${movieId}?language=en-US
 
-
+export default Details;
