@@ -8,8 +8,8 @@ import { getMovieById } from "@/lib/api/api/getMovieById";
 import { useEffect, useState } from "react";
 import { getSameMovies } from "@/lib/api/api/getSameMovies";
 import { Footer } from "@/components/Footer";
-import { getTrailer } from "@/lib/api/api/getTrailer";
-import { Trailer } from "@/components/details/Trailer";
+import { getTrailer } from "@/lib/api/api/getMovieTrailer";
+
 
 const Details = () => {
   const router = useRouter();
@@ -17,18 +17,6 @@ const Details = () => {
   const [movie, setMovie] = useState({});
   
   const [simi, setSimi] = useState([]);
-
-  const [movieTrailer, setMovieTrailer] = useState([]);
-  console.log("trailer", movieTrailer)
-
-const trailers = async()=>{
-  try {
-    const movieTrailer = await getTrailer(movieId)
-    setMovieTrailer(movieTrailer)
-  } catch (error) {
-    
-  }
-}
 
 const similar =async()=>{
   try {
@@ -56,7 +44,6 @@ const similar =async()=>{
         <DetailsOverview movie={movie}/>
         <DetailsTable movie={movie}/>
         <DetailsMoreLike simi={simi}/>
-        <Trailer movieTrailer={movieTrailer}/>
         
       </div>
       <Footer/>

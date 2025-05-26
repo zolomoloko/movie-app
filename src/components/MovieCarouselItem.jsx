@@ -1,5 +1,6 @@
 import { Play, Star } from "lucide-react";
 import Link from "next/link";
+import { MovieTrailer } from "./details/MovieTrailer";
 
 export const MovieCarouselItem = ({ movie, movieId}) => {
   console.log("dd",movieId)
@@ -11,6 +12,7 @@ export const MovieCarouselItem = ({ movie, movieId}) => {
           alt="cart"
           className="w-screen min-h-[246px] lg:max-h-[800px] md:relative object-cover"
         />
+      </Link>
         <div className="flex flex-col gap-[16px] m-[20px] md:absolute top-[178px] left-[140px] md:w-[404px] md:text-white">
           <div className="flex  h-[52px] justify-between items-center">
             <div>
@@ -30,11 +32,8 @@ export const MovieCarouselItem = ({ movie, movieId}) => {
           </div>
 
           <p>{movie?.overview}</p>
-          <button className="flex gap-[2px] px-[16px] py-[8px] bg-[#09090b] text-white w-fit rounded-[6px] md:bg-white md:text-[#18181b]">
-            <Play /> Watch Trailer
-          </button>
+         <MovieTrailer/>
         </div>
-      </Link>
     </div>
   );
 };
