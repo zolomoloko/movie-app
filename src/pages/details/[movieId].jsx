@@ -40,7 +40,7 @@ const similar =async()=>{
       <Header />
       <div className="md:max-w-[1100px] mx-auto pt-[52px]">
        
-        <DetailsHeader movie={movie}/>
+        <DetailsHeader movie={movie} movieId={movieId}/>
         <DetailsOverview movie={movie}/>
         <DetailsTable movie={movie}/>
         <DetailsMoreLike simi={simi}/>

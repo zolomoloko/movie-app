@@ -1,8 +1,9 @@
 import { Play, Star } from "lucide-react";
 import { Button } from "../ui/button";
+import { MovieTrailer } from "./MovieTrailer";
 
 
-export const DetailsHeader = ({movie}) => {
+export const DetailsHeader = ({movie, movieId}) => {
   return (
     <div className="flex flex-col gap-4">
         <div className="flex justify-between px-5 md:px-0">
@@ -30,8 +31,7 @@ export const DetailsHeader = ({movie}) => {
           <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt="cart"className="hidden md:flex w-1/3 object-cover"/>
           <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} className="md:w-2/3 object-cover"/>
               <div className="absolute flex items-center gap-3 top-[75%] left-[10%] md:top-[80%] md:left-[38%]">
-                <Button variant="secondary" className="rounded-[50px]"><Play/></Button>
-                <p className="font-normal text-[16px] text-white">Play trailer</p>
+                <MovieTrailer movieId={movieId}/>
                 <p className="font-normal text-[16px] text-white">2:35</p>
               </div>
         </div>

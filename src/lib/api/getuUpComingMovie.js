@@ -11,6 +11,5 @@ export const getUpComingMovies = async ()=> {
         }
     );
     const movies = await response.json();
-    console.log("amjilt", movies)
     return movies?.results;
 }

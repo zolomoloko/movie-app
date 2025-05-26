@@ -9,7 +9,6 @@ export const TopRated = () => {
         const top = async () => {
             const upTopMovies = await getTopMovies();
             setUpTopMovies(upTopMovies);
-            console.log("tttt",upTopMovies)
         };
         top();
     }, [])

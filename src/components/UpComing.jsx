@@ -12,7 +12,6 @@ export const UpComing = () => {
         const fetchMovies = async () => {
             const upComingMovies = await getUpComingMovies();
             setUpComingMovies(upComingMovies); 
-            console.log("dddd",upComingMovies)
         };
 
         fetchMovies();
