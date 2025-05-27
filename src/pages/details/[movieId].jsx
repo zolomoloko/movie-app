@@ -8,7 +8,7 @@ import { getMovieById } from "@/lib/api/api/getMovieById";
 import { useEffect, useState } from "react";
 import { getSameMovies } from "@/lib/api/api/getSameMovies";
 import { Footer } from "@/components/Footer";
-import { getTrailer } from "@/lib/api/api/getMovieTrailer";
+
 
 
 const Details = () => {
@@ -38,7 +38,7 @@ const similar =async()=>{
   return (
     <div>
       <Header />
-      <div className="md:max-w-[1100px] mx-auto pt-[52px]">
+      <div className="md:max-w-[1800px] mx-auto pt-[52px]">
        
         <DetailsHeader movie={movie} movieId={movieId}/>
         <DetailsOverview movie={movie}/>

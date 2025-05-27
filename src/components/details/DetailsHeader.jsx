@@ -27,7 +27,7 @@ export const DetailsHeader = ({movie, movieId}) => {
             </div>
         </div>
                     
-        <div className="flex justify-center relative gap-5 min-h-[210px] md:max-h-[428px]">
+        <div className="flex justify-center relative gap-5 min-h-[210px] md:max-h-[728px]">
           <img src={`https://image.tmdb.org/t/p/original/${movie?.poster_path}`} alt="cart"className="hidden md:flex w-1/3 object-cover"/>
           <img src={`https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`} className="md:w-2/3 object-cover"/>
               <div className="absolute flex items-center gap-3 top-[75%] left-[10%] md:top-[80%] md:left-[38%]">
