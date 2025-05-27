@@ -12,7 +12,8 @@ export const Popular = () => {
     useEffect(() => {
         const popMovies = async () => {
             const upPopularMovies = await getPopularMovies();
-            setUpPopularMovies(upPopularMovies)
+            const firstTenMovies = upPopularMovies.results?.slice(0, 10)
+            setUpPopularMovies(firstTenMovies)
         };
         popMovies();
     }, [])
@@ -25,7 +26,7 @@ export const Popular = () => {
                 </Link>
             </div>
             <div className="grid  gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                {upPopularMovies?.slice(0, 10).map((movie,id) => (
+                {upPopularMovies?.map((movie,id) => (
                     <MovieCard key={id} movie={movie}/>
                 ))}
             </div>

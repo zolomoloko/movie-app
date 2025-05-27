@@ -9,7 +9,8 @@ export const TopRated = () => {
     useEffect(()=>{
         const top = async () => {
             const upTopMovies = await getTopMovies();
-            setUpTopMovies(upTopMovies);
+            const firstTenMovies = upTopMovies.results?.slice(0, 10)
+            setUpTopMovies(firstTenMovies);
         };
         top();
     }, [])
@@ -22,7 +23,7 @@ export const TopRated = () => {
                 </Link>
             </div>
             <div className="grid  gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-                {upTopMovies?.slice(0, 10).map((movie) => (
+                {upTopMovies?.map((movie) => (
                     <MovieCard key={movie.id} movie={movie}/>
                 ))}
             </div>

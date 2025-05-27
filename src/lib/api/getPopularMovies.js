@@ -1,6 +1,6 @@
-export const getPopularMovies = async () => {
+export const getPopularMovies = async (page=1) => {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/movie/popular?language=en-US&page=1`,
+    `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/movie/popular?language=en-US&page=${page}`,
     {
       method: "GET",
       headers: {
@@ -9,7 +9,7 @@ export const getPopularMovies = async () => {
       },
     }
   );
-  const kanu = await response.json();
+  const data= await response.json();
 
-  return kanu?.results;
+  return data;
 };

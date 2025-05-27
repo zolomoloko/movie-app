@@ -10,7 +10,8 @@ export const UpComing = () => {
   useEffect(() => {
     const fetchMovies = async () => {
       const upComingMovies = await getUpComingMovies();
-      setUpComingMovies(upComingMovies);
+      const firstTenMovies = upComingMovies.results?.slice(0, 10)
+      setUpComingMovies(firstTenMovies);
     };
 
     fetchMovies();
@@ -27,7 +28,7 @@ export const UpComing = () => {
         </Link>
       </div>
       <div className="grid  gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {upComingMovies?.slice(0, 10).map((movie) => (
+        {upComingMovies?.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
