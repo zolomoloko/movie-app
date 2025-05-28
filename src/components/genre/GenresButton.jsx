@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import { DropdownMenuLabel, DropdownMenuSeparator } from "../ui/dropdown-menu";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { getGenre } from "@/lib/api/getGenre";
+import { getGenre } from "@/lib/genreFilter/getGenre";
 
 export const GenresButton = () => {
   const [genres, setGenres] = useState([]);
