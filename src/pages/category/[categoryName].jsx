@@ -32,7 +32,7 @@ const Page = () => {
         ))}
       </div>
 
-      <CategoryFrame/>
+      {/* <CategoryFrame/> */}
       <Footer/>
     </div>
   );

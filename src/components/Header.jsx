@@ -1,7 +1,7 @@
 import { ChevronDown, FilmIcon, Moon, Search, Sun } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import { Genre } from "./Genre";
+import { Genre } from "./genre/Genre";
 // import * as React from "react"
 // import { useTheme } from "next-themes"
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"

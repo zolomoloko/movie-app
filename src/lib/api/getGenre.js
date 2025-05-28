@@ -1,6 +1,6 @@
  export const getGenre = async (genreIds) => {
     const response = await fetch (
-        `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/discover/movie?language=en&with_genres=${genreIds}&page=${page}`,
+        `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/genre/movie/list?language=en`,
         {
           method: "GET",
           headers: {
@@ -10,5 +10,5 @@
         }
     )
     const genre = await response.json()
-        return genre?.results;
+        return genre;
  }
