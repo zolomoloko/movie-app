@@ -17,54 +17,38 @@ import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useState } from "react";
 
 const GenrePage = () => {
-  const [movieFilter, setmovieFilter] = useState({});
+
   const router = useRouter();
-  const [genreIds, setGenreIds] = useQueryState("genreIds");
+  const genreId = router.query.genreIds
+  console.log("",genreId)
+  const [movieFilter, setmovieFilter] = useState({});
 
-  console.log("genreIds: ", genreIds);
+  useEffect(() => {
+    if (!genreId) return;
+    const getFilter = async () => {
+      const data = await getGenreFilter(genreId);
 
-  // const [morePage, setMorePage] = useQueryState(
-  //   "page",
-  //   parseAsInteger.withDefault(1)
-  // );
+      setmovieFilter(data);
+    };
+    getFilter();
+  }, [genreId]);
 
-  // const totalPage = movieFilter?.total_pages;
-  // console.log("bbb", movieFilter?.total_pages)
-  // const arr = Array
-
-  // useEffect(() => {
-  //   if (!genreName) return;
-  //   const getFilter = async () => {
-  //     const data = await getGenreFilter(genreName);
-
-  //     setmovieFilter(data);
-  //   };
-  //   getFilter();
-  // }, []);
-
-  // if (!movieFilter || !movieFilter.results) return null;
-  // const kino = movieFilter.results;
+  if (!movieFilter || !movieFilter.results) return null;
+  const resultMovie = movieFilter.results;
 
   return (
     <div>
-      <button
-        onClick={() => {
-          setGenreIds(1);
-        }}
-      >
-        set
-      </button>
-      {/* <Header />
+      <Header />
       <div className="w-screen md:max-w-[1800px] mx-auto pt-[52px]">
         <p className="font-semibold text-[30px]">Search filter</p>
-        <div className="flex flex-col pt-8 gap-10 md:">
+        <div className="flex  pt-8 gap-10 ">
           <div className="w-[385px]">
             <GenresButton />
           </div>
           <div className="p-5">
             <p>81 title in ""</p>
             <div className="grid  gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4  md:max-w-[1400px]">
-              {kino?.map((movie) => (
+              {resultMovie?.map((movie) => (
                 <MovieCard movie={movie} key={movie.id} />
               ))}
             </div>
@@ -87,7 +71,7 @@ const GenrePage = () => {
           </div>
         </div>
       </div>
-      <Footer /> */}
+      <Footer />
     </div>
   );
 };

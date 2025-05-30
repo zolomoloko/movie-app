@@ -1,29 +1,36 @@
 import { ChevronRight } from "lucide-react";
 import { Button } from "../ui/button";
 import { DropdownMenuLabel, DropdownMenuSeparator } from "../ui/dropdown-menu";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { getGenre } from "@/lib/genreFilter/getGenre";
 import { useRouter } from "next/router";
 
 export const GenresButton = () => {
   const router = useRouter();
-  const genreId = router.query.genreFilter;
   const [genres, setGenres] = useState([]);
   const [genreIds, setGenreIds] = useState([]);
+  
 
   useEffect(() => {
     const getGenres = async () => {
-      const movies = await getGenre();
-      const allGenre = movies.genres;
-      setGenres(allGenre);
+      const moviesZ = await getGenre();
+      setGenres(moviesZ.genres);
     };
     getGenres();
   }, []);
-  const handleSelectGenre = (id, name) => {
-    setGenreIds([...genreIds, name]);
 
-    //  router.push(`/genres?genreIds=${genreIds}&name=${name}`);
+  // toggle hiih function
+  const handleSelectGenre = (id) => {
+    const newGenreIds = genreIds.includes(id)
+      ? genreIds.filter((genreId) => genreId !== id)
+      : [...genreIds, id];
+    setGenreIds(newGenreIds);
+
+
+    router.push({
+      pathname: "/genrePage",
+      query: { genreIds: newGenreIds.join(",") },
+    });
   };
 
   return (
@@ -37,18 +44,19 @@ export const GenresButton = () => {
       <DropdownMenuSeparator />
 
       <div className="flex gap-3 flex-wrap font-bold pt-5">
-        {genres?.map((genre) => (
-          <Link href={`/genreFilter/${genre.id}`}>
+        {genres?.map((genre) => {
+          const isSlected = genreIds.includes(genre.id);
+          return (
             <Button
-              movie={genre}
-              variant={String(genre.id) === genreId ? "default" : "secondary"}
+              key={genre.id}
+              variant={isSlected ? "default" : "secondary"}
               className="border-gray-400 border-[1px] rounded-full px-[10px] py-[2px] flex font-bold"
-              onClick={() => handleSelectGenre(genre.id, genre.name)}
+              onClick={() => handleSelectGenre(genre.id)}
             >
               {genre.name} <ChevronRight />
             </Button>
-          </Link>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
