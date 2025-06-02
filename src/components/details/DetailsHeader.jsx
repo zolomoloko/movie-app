@@ -18,7 +18,7 @@ export const DetailsHeader = ({movie, movieId}) => {
                 <Star className="h-6 w-6 fill-yellow-300 text-yellow-300" />
                 <div>
                     <div className="flex font-normal text-[14px]">
-                        <p className="text-[#09090b]">{movie?.vote_average?.toFixed(1)}</p>
+                        <p className="text-[#09090b] dark:text-white">{movie?.vote_average?.toFixed(1)}</p>
                         <p className="text-[#71717a]">/10</p>
                     </div>
                     <p className="font-normal text-[12px] text-[#71717a]">37k</p>

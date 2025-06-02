@@ -25,7 +25,7 @@ export const Popular = () => {
                   <p className="flex font-medium gap-[8px] items-center">See more <ArrowRight className="w-[16px] h-[16px]"/></p>
                 </Link>
             </div>
-            <div className="grid  gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+            <div className="grid  gap-[30px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
                 {upPopularMovies?.map((movie,id) => (
                     <MovieCard key={id} movie={movie}/>
                 ))}

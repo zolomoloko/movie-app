@@ -4,11 +4,13 @@ import { DropdownMenuLabel, DropdownMenuSeparator } from "../ui/dropdown-menu";
 import { useEffect, useState } from "react";
 import { getGenre } from "@/lib/genreFilter/getGenre";
 import { useRouter } from "next/router";
+import { parseAsArrayOf, parseAsInteger, useQueryState } from "nuqs";
 
 export const GenresButton = () => {
   const router = useRouter();
   const [genres, setGenres] = useState([]);
-  const [genreIds, setGenreIds] = useState([]);
+  const [genreIds, setGenreIds] = useQueryState("genreIds", parseAsArrayOf(parseAsInteger).withDefault([]));
+
   
 
   useEffect(() => {
@@ -31,6 +33,7 @@ export const GenresButton = () => {
       pathname: "/genrePage",
       query: { genreIds: newGenreIds.join(",") },
     });
+    // router.push(`/genres?genreIds=${newGenreIds}`);
   };
 
   return (
@@ -50,7 +53,7 @@ export const GenresButton = () => {
             <Button
               key={genre.id}
               variant={isSlected ? "default" : "secondary"}
-              className="border-gray-400 border-[1px] rounded-full px-[10px] py-[2px] flex font-bold"
+              className=" border-none rounded-full px-[10px] py-[2px] flex font-bold"
               onClick={() => handleSelectGenre(genre.id)}
             >
               {genre.name} <ChevronRight />

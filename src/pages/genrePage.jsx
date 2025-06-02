@@ -47,7 +47,7 @@ const GenrePage = () => {
           </div>
           <div className="p-5">
             <p>81 title in ""</p>
-            <div className="grid  gap-[20px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4  md:max-w-[1400px]">
+            <div className="grid  gap-[30px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
               {resultMovie?.map((movie) => (
                 <MovieCard movie={movie} key={movie.id} />
               ))}
