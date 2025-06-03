@@ -12,6 +12,7 @@ const Page = () => {
   const categoryName = router.query?.categoryName;
   const [movieCategory, setMovieCategory] = useState({});
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
+console.log("hahahah",movieCategory);
 
   useEffect(() => {
     if (!categoryName) return;

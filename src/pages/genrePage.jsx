@@ -2,15 +2,7 @@ import { Footer } from "@/components/Footer";
 import { GenresButton } from "@/components/genre/GenresButton";
 import { Header } from "@/components/Header";
 import { MovieCard } from "@/components/MovieCard";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+import { CategoryFrame } from "@/components/Pages";
 import { getGenreFilter } from "@/lib/genreFilter/getGerneFilter";
 import { useRouter } from "next/router";
 import { parseAsInteger, useQueryState } from "nuqs";
@@ -20,8 +12,9 @@ const GenrePage = () => {
 
   const router = useRouter();
   const genreId = router.query.genreIds
-  console.log("",genreId)
   const [movieFilter, setmovieFilter] = useState({});
+  const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
+  // console.log("akkaka",movieFilter)
 
   useEffect(() => {
     if (!genreId) return;
@@ -31,10 +24,12 @@ const GenrePage = () => {
       setmovieFilter(data);
     };
     getFilter();
-  }, [genreId]);
-
+  }, [genreId, page]);
+  
   if (!movieFilter || !movieFilter.results) return null;
   const resultMovie = movieFilter.results;
+
+  
 
   return (
     <div>
@@ -52,22 +47,10 @@ const GenrePage = () => {
                 <MovieCard movie={movie} key={movie.id} />
               ))}
             </div>
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious href="#" />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink href="#">1</PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis />
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationNext href="#" />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
+           <CategoryFrame
+           page={page}
+           setPage={setPage}
+           movieCategory={movieFilter}/>
           </div>
         </div>
       </div>

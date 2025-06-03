@@ -7,7 +7,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "./ui/pagination";
-import { useState } from "react";
+
 
 export const CategoryFrame = ({ page, setPage, movieCategory }) => {
   const totalPage = movieCategory.total_pages;

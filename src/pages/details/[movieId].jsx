@@ -43,7 +43,7 @@ const similar =async()=>{
         <DetailsHeader movie={movie} movieId={movieId}/>
         <DetailsOverview movie={movie}/>
         <DetailsTable movie={movie}/>
-        <DetailsMoreLike simi={simi}/>
+        <DetailsMoreLike simi={simi} movieId= {movieId}/>
         
       </div>
       <Footer/>
