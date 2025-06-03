@@ -1,6 +1,7 @@
 export const getDirector = async (id) => {
   try {
     const response = await fetch(
+     
       `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/movie/${id}/credits?language=en-US`,
       {
         method: "GET",
@@ -11,6 +12,8 @@ export const getDirector = async (id) => {
       }
     );
     const director = await response.json();
+    console.log("erererer",director);
+    
     return director;
   } catch (error) {
     console.log(error);

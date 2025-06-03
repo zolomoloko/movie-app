@@ -12,7 +12,7 @@ const moreLike = () => {
   const moreLike = router.query.moreLike;
   const [more, setMore] = useState({});
   console.log("borooboroo", more);
-    // const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
+  
 
   useEffect(() => {
     if (!moreLike) return;
@@ -26,16 +26,11 @@ const moreLike = () => {
   return (
     <div>
       <Header />
-      <div className="grid  gap-[30px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+      <div className="grid  gap-[30px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5  md:max-w-[1800px] m-auto py-[52px]">
         {more.results?.map((movie) => (
-          <MovieCard movie={movie}/>
+          <MovieCard movie={movie} key={movie.id}/>
         ))}
       </div>
-      {/* <CategoryFrame
-        page={page}
-        setPage={setPage}
-        movieCategory={more}
-      /> */}
       <Footer />
     </div>
   );

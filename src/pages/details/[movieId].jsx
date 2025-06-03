@@ -1,4 +1,4 @@
-import { DetailsTable } from "@/components/details/DetailsTable";
+import { Director } from "@/components/details/Director";
 import { DetailsHeader } from "@/components/details/DetailsHeader";
 import { DetailsMoreLike } from "@/components/details/DetailsMoreLike";
 import { DetailsOverview } from "@/components/details/DetailsOverview";
@@ -42,7 +42,7 @@ const similar =async()=>{
        
         <DetailsHeader movie={movie} movieId={movieId}/>
         <DetailsOverview movie={movie}/>
-        <DetailsTable movie={movie}/>
+        <Director movie={movie}/>
         <DetailsMoreLike simi={simi} movieId= {movieId}/>
         
       </div>

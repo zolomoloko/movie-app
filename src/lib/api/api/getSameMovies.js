@@ -10,5 +10,5 @@ export const getSameMovies = async (id) => {
         }
     )
     const same = await response.json();
-    return same?.results;
+    return same;
 }

@@ -14,12 +14,12 @@ const GenrePage = () => {
   const genreId = router.query.genreIds
   const [movieFilter, setmovieFilter] = useState({});
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
-  // console.log("akkaka",movieFilter)
+  
 
   useEffect(() => {
     if (!genreId) return;
     const getFilter = async () => {
-      const data = await getGenreFilter(genreId);
+      const data = await getGenreFilter(genreId, page);
 
       setmovieFilter(data);
     };

@@ -1,4 +1,4 @@
-export const getGenreFilter = async (genreIds, page) => {
+export const getGenreFilter = async (genreIds, page=1) => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_TMDB_BASE_URL}/discover/movie?language=en&with_genres=${genreIds}&page=${page}`,
     {
