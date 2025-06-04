@@ -4,17 +4,22 @@ import { MovieCarouselItem } from "./MovieCarouselItem";
 import Autoplay from "embla-carousel-autoplay"
 import { useEffect, useState } from "react";
 import { getNowPlayingMovies } from "@/lib/api/getNowPlayingMovies";
+import { HomePageLoading } from "./loading/HomePageLoading";
 
 
 export const MovieCarousel = () => {
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
+  const [loading, setLoading] = useState(false)
   useEffect(()=>{
+    setLoading(true);
     const fetchMovies = async ()=>{
       const movies = await getNowPlayingMovies();
       setNowPlayingMovie(movies);
     };
     fetchMovies()
+    // setLoading(false)
   }, []);
+  if(loading) return <HomePageLoading />;
   return (
     <div>
       <Carousel 

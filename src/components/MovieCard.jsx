@@ -1,6 +1,6 @@
 import { Star } from "lucide-react";
 import Link from "next/link";
-import { Image } from "./Image";
+import { Image } from "./loadable-image/Image";
 
 export const MovieCard = ({ movie }) => {
   return (
@@ -19,7 +19,9 @@ export const MovieCard = ({ movie }) => {
               <p className="font-medium text-[#71717a]">/10</p>
             </div>
           </div>
-          <p className="font-medium h-[40px] text-[#09090b] dark:text-white">{movie?.title}</p>
+          <p className="font-medium h-[40px] text-[#09090b] dark:text-white">
+            {movie?.title}
+          </p>
         </div>
       </Link>
     </div>
