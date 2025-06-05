@@ -7,7 +7,7 @@ export const CarouselImage = ({ src }) => {
   return (
     <AsyncImage
       src={src}
-      className="w-screen min-h-[246px] lg:h-[1000px]"
+      className="w-screen min-h-[246px] lg:h-[900px]"
       Transition={Blur}
     />
   );
