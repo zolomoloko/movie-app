@@ -3,6 +3,7 @@ import { Button } from "./ui/button";
 import Link from "next/link";
 import { Genre } from "./genre/Genre";
 import { ModeToggle } from "./ModeToggle";
+import { HeaderSearch } from "./search/search";
 // import * as React from "react"
 // import { useTheme } from "next-themes"
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -22,10 +23,7 @@ export const Header = () => {
 
       <div className="hidden md:flex gap-[12px]">
         <Genre />
-        <Button variant="outline">
-          <Search />
-          <input type="text" placeholder="Search.." className="outline-none" />
-        </Button>
+        <HeaderSearch />
       </div>
 
       <div className="flex gap-3">
@@ -33,9 +31,7 @@ export const Header = () => {
           <Search />
         </Button>
 
-        
-        <ModeToggle/>
-        
+        <ModeToggle />
       </div>
     </div>
   );

@@ -18,7 +18,7 @@ export const UpComing = () => {
     };
 
     fetchMovies();
-    //  setLoading(false)
+     setLoading(false)
   }, []);
   // if(loading) return <MoviePosterLoading/>
 

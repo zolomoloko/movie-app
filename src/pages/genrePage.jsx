@@ -9,12 +9,10 @@ import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect, useState } from "react";
 
 const GenrePage = () => {
-
   const router = useRouter();
-  const genreId = router.query.genreIds
+  const genreId = router.query.genreIds;
   const [movieFilter, setmovieFilter] = useState({});
   const [page, setPage] = useQueryState("page", parseAsInteger.withDefault(1));
-  
 
   useEffect(() => {
     if (!genreId) return;
@@ -25,11 +23,9 @@ const GenrePage = () => {
     };
     getFilter();
   }, [genreId, page]);
-  
+
   if (!movieFilter || !movieFilter.results) return null;
   const resultMovie = movieFilter.results;
-
-  
 
   return (
     <div>
@@ -47,10 +43,11 @@ const GenrePage = () => {
                 <MovieCard movie={movie} key={movie.id} />
               ))}
             </div>
-           <CategoryFrame
-           page={page}
-           setPage={setPage}
-           movieCategory={movieFilter}/>
+            <CategoryFrame
+              page={page}
+              setPage={setPage}
+              movieCategory={movieFilter}
+            />
           </div>
         </div>
       </div>

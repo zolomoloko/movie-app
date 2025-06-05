@@ -17,7 +17,7 @@ export const MovieCarousel = () => {
       setNowPlayingMovie(movies);
     };
     fetchMovies()
-    // setLoading(false)
+    setLoading(false)
   }, []);
   if(loading) return <HomePageLoading />;
   return (

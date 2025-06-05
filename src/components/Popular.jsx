@@ -8,14 +8,17 @@ import Link from "next/link";
 export const Popular = () => {
 
     const [upPopularMovies, setUpPopularMovies] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true)
         const popMovies = async () => {
             const upPopularMovies = await getPopularMovies();
             const firstTenMovies = upPopularMovies.results?.slice(0, 10)
             setUpPopularMovies(firstTenMovies)
         };
         popMovies();
+        setLoading(false)
     }, [])
     return(
         <div className="flex flex-col p-[20px] gap-[32px] w-screen md:max-w-[1800px] mx-auto">
@@ -26,6 +29,7 @@ export const Popular = () => {
                 </Link>
             </div>
             <div className="grid  gap-[30px] grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                {loading && <MoviePosterLoading/>}
                 {upPopularMovies?.map((movie,id) => (
                     <MovieCard key={id} movie={movie}/>
                 ))}

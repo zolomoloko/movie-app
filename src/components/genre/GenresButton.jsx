@@ -9,9 +9,10 @@ import { parseAsArrayOf, parseAsInteger, useQueryState } from "nuqs";
 export const GenresButton = () => {
   const router = useRouter();
   const [genres, setGenres] = useState([]);
-  const [genreIds, setGenreIds] = useQueryState("genreIds", parseAsArrayOf(parseAsInteger).withDefault([]));
-
-  
+  const [genreIds, setGenreIds] = useQueryState(
+    "genreIds",
+    parseAsArrayOf(parseAsInteger).withDefault([])
+  );
 
   useEffect(() => {
     const getGenres = async () => {
@@ -27,7 +28,6 @@ export const GenresButton = () => {
       ? genreIds.filter((genreId) => genreId !== id)
       : [...genreIds, id];
     setGenreIds(newGenreIds);
-
 
     router.push({
       pathname: "/genrePage",
@@ -56,7 +56,8 @@ export const GenresButton = () => {
               className=" border-none rounded-full px-[10px] py-[2px] flex font-bold"
               onClick={() => handleSelectGenre(genre.id)}
             >
-              {genre.name} <ChevronRight />
+              {genre.name}
+              <ChevronRight />
             </Button>
           );
         })}

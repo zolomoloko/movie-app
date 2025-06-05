@@ -7,7 +7,7 @@ export const Image = ({ src }) => {
   return (
     <AsyncImage
       src={src}
-      style={{ width: "100%", height: 540 }}
+      className="w-100%  min-h-[250px] md:h-[540px]"
       Transition={Blur}
     />
   );

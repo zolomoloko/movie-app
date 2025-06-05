@@ -11,12 +11,10 @@ const moreLike = () => {
   const router = useRouter();
   const moreLike = router.query.moreLike;
   const [more, setMore] = useState({});
-  console.log("borooboroo", more);
   
 
   useEffect(() => {
     if (!moreLike) return;
-    console.log("nnn", moreLike);
     const getMoreLike = async () => {
       const data = await getSameMovies(moreLike);
       setMore(data);
