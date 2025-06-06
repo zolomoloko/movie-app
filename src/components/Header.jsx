@@ -4,12 +4,15 @@ import Link from "next/link";
 import { Genre } from "./genre/Genre";
 import { ModeToggle } from "./ModeToggle";
 import { HeaderSearch } from "./search/Search";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 // import * as React from "react"
 // import { useTheme } from "next-themes"
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 
-export const Header = () => {
+export const Header = ({ searchValue }) => {
+  const [visible, setVisible] = useState(false);
   return (
     <div className="h-15 flex justify-between items-center p-5  md:max-w-[1800px] mx-auto">
       <Link href={"/"}>
@@ -28,10 +31,31 @@ export const Header = () => {
         <HeaderSearch />
       </div>
 
-      <div className="flex gap-3">
-        <Button variant="outline" className="flex gap-3 md:hidden">
-          <Search />
-        </Button>
+      <div className="flex gap-3  ">
+        <div className="md:hidden flex">
+          <Button
+            variant="outline"
+            className="flex gap-3 "
+            onClick={() => setVisible(!visible)}
+          >
+            <Search />
+          </Button>
+          <AnimatePresence>
+            {visible && (
+              <motion.div
+                initial={{ x: 40, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -200, opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="absolute  left-25  px-4"
+              >
+                <div className=" w-full  rounded-xl ">
+                  <HeaderSearch searchValue={searchValue} />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         <ModeToggle />
       </div>

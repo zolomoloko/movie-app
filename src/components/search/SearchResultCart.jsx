@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 export const SearchResultCart = ({ movie, setSearchValue }) => {
   const { original_title, poster_path, popularity, release_date, id } = movie;
   const router = useRouter();
-  const imageUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}/orignal/${poster_path}`;
+  const imageUrl = `${process.env.NEXT_PUBLIC_TMDB_IMAGE_SERVICE_URL}${poster_path}`;
   const handleSeeMore = () => {
     setSearchValue("");
     router.push(`/details/${id}`);
@@ -33,7 +33,7 @@ export const SearchResultCart = ({ movie, setSearchValue }) => {
           </div>
         </div>
       </div>
-      <Separator className="w-full" />
+      <Separator className="w-full bg-gray-900 border-[1px]" />
     </div>
   );
 };
