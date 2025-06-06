@@ -1,9 +1,10 @@
-import { ChevronDown, FilmIcon, Moon, Search, Sun } from "lucide-react";
+import { FilmIcon, Search } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { Genre } from "./genre/Genre";
 import { ModeToggle } from "./ModeToggle";
-import { HeaderSearch } from "./search/search";
+import { HeaderSearch } from "./search/Search";
+
 // import * as React from "react"
 // import { useTheme } from "next-themes"
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -23,6 +24,7 @@ export const Header = () => {
 
       <div className="hidden md:flex gap-[12px]">
         <Genre />
+
         <HeaderSearch />
       </div>
 

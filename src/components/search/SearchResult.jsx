@@ -8,7 +8,7 @@ export const SearchResult = ({ movies, setSearchValue }) => {
         movies?.results
           ?.slice(0, 4)
           .map((movie) => (
-            <SearchResultCart movie={movie} setSearchValue={setSearchValue} />
+            <SearchResultCart key={movie.id} movie={movie} setSearchValue={setSearchValue} />
           ))}
     </div>
   );

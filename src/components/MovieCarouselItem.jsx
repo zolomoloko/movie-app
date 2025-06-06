@@ -34,7 +34,7 @@ export const MovieCarouselItem = ({ movie, movieId }) => {
         </div>
         <p>{movie?.overview}</p>
         <div>
-          <MovieTrailer movieId={movieId} />
+          <MovieTrailer movieId={movieId}/>
         </div>
       </div>
     </div>

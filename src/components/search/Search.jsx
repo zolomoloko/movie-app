@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { SearchResult } from "./SearchResult";
 import { Input } from "../ui/input";
-
-
+import Link from "next/link";
+import { Search } from "lucide-react";
 
 export const HeaderSearch = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -23,7 +23,7 @@ export const HeaderSearch = () => {
       );
 
       const movies = await response.json();
-      console.log("aaaahahah",movies)
+
       setMovies(movies);
     } catch (error) {
       console.log(error);
@@ -35,14 +35,20 @@ export const HeaderSearch = () => {
   }, [searchValue]);
 
   return (
-    <div className="relative">
-      <Input
-        onChange={(event) => setSearchValue(event.target.value)}
-        value={searchValue}
-        type="text"
-        placeholder="Search..."
-        className={cn("pl-[38px]", "border-1 shadow-none")}
-      />
+    <div className="relative flex items-center border-1 rounded-lg">
+      <div className={cn("relative text-muted-foreground", "w-[379px]")}>
+        <Link href={`/searchPage?searchValue=${searchValue}`}>
+          <Search className="w-4 h-4 absolute -translate-y-1/2 left-3 top-1/2" />
+        </Link>
+        <Input
+          onChange={(event) => setSearchValue(event.target.value)}
+          value={searchValue}
+          type="text"
+          placeholder="Search..."
+          className={cn("pl-[38px]", "border-1 shadow-none")}
+        />
+      </div>
+
       {movies?.results?.length > 0 && (
         <SearchResult movies={movies} setSearchValue={setSearchValue} />
       )}
