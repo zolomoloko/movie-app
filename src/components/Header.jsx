@@ -7,6 +7,7 @@ import { HeaderSearch } from "./search/Search";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
+
 // import * as React from "react"
 // import { useTheme } from "next-themes"
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
