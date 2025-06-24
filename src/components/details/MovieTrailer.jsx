@@ -2,7 +2,12 @@ import { getMovieTrailer } from "@/lib/api/api/getMovieTrailer";
 import { Play } from "lucide-react";
 import { useEffect, useState } from "react";
 import YouTube from "react-youtube";
-import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "../ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogTrigger,
+} from "../ui/dialog";
 
 export const MovieTrailer = ({ movieId }) => {
   const [trailer, setTrailer] = useState([]);
@@ -26,17 +31,18 @@ export const MovieTrailer = ({ movieId }) => {
 
   return (
     <Dialog>
-      <DialogTrigger className="flex bg-white rounded-[8px] p-1.5">
-        <DialogTitle></DialogTitle>
-        <Play />
-        Watch Trailer
+      <DialogTrigger className="bg-white rounded-[8px]">
+        <DialogTitle className="flex p-1.5 items-center text-black gap-1 text-[15px] font-normal">
+          <Play />
+          Watch Trailer
+        </DialogTitle>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-fit bg-transparent border-none">
+      <DialogContent className="bg-transparent border-none p-0 w-full max-w-[1600px] max-h-[1000px] aspect-video rounded-lg text-white">
         <YouTube
           videoId={MovieTrailer?.key}
           opts={{
-            height: "200",
-            width: "400",
+            height: "100%",
+            width: "100%",
             playerVars: {
               autoplay: 1,
             },

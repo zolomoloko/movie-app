@@ -3,7 +3,7 @@ import { FilmIcon, MailIcon, Phone } from "lucide-react"
 export const Footer = () => {
     return(
         <div className=" flex flex-col justify-center bg-[#4338ca] px-5 py-5 md:px-[250px] text-white md:flex ">
-            <div className="pb-7 flex flex-col gap-3">
+             <div className="pb-7 flex flex-col gap-3">
               <div className="flex gap-2">
                 <FilmIcon/>  
                 <b><i>Movie Z</i></b>
@@ -31,9 +31,10 @@ export const Footer = () => {
                 </div>
                 <div className="flex flex-col gap-3">
                     <p>Follow us</p>
+                    
                     <div className="flex flex-col gap-3 md:flex-row">
                         <p>Facebook</p>
-                        <p>Instagram</p>
+                        <a href="https://www.instagram.com/zoloo0819?igsh=bWQwN240OGtvdWRs&utm_source=qr">Instagram</a>
                         <p>Twitter</p>
                         <p>Youtube</p>
                     </div>
