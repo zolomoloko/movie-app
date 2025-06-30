@@ -7,7 +7,6 @@ import { HeaderSearch } from "./search/Search";
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-
 // import * as React from "react"
 // import { useTheme } from "next-themes"
 // import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
@@ -19,7 +18,6 @@ export const Header = ({ searchValue }) => {
       <Link href={"/"}>
         <div className="flex gap-2 items-center text-sky-800">
           <FilmIcon className="h-5 w-5" />
-
           <b>
             <i>MovieZ</i>
           </b>
@@ -34,13 +32,15 @@ export const Header = ({ searchValue }) => {
 
       <div className="flex gap-3  ">
         <div className="md:hidden flex">
-          <Button
-            variant="outline"
-            className="flex gap-3 "
-            onClick={() => setVisible(!visible)}
-          >
-            <Search />
-          </Button>
+          
+            <Button
+              variant="outline"
+              className="flex gap-3 "
+              onClick={() => setVisible(!visible)}
+            >
+              <Search />
+            </Button>
+         
           <AnimatePresence>
             {visible && (
               <motion.div
