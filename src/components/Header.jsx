@@ -13,15 +13,28 @@ import { AnimatePresence, motion } from "framer-motion";
 
 export const Header = ({ searchValue }) => {
   const [visible, setVisible] = useState(false);
+
   return (
     <div className="h-15 flex justify-between items-center p-5  md:max-w-[1800px] mx-auto">
       <Link href={"/"}>
-        <div className="flex gap-2 items-center text-sky-800">
+
+        {/* <div className="flex gap-2 items-center text-sky-800">
           <FilmIcon className="h-5 w-5" />
           <b>
             <i>MovieZ</i>
           </b>
-        </div>
+        </div> */}
+
+        {!visible && (
+          <div className="flex gap-2 items-center text-sky-800">
+            <FilmIcon className="h-5 w-5" />
+
+            <b>
+              <i>MovieZ</i>
+            </b>
+          </div>
+        )}
+
       </Link>
 
       <div className="hidden md:flex gap-[12px]">
@@ -57,8 +70,10 @@ export const Header = ({ searchValue }) => {
             )}
           </AnimatePresence>
         </div>
-
-        <ModeToggle />
+      {!visible && (
+         <ModeToggle />
+      )}
+       
       </div>
     </div>
   );
